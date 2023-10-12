@@ -1,5 +1,6 @@
 package com.example.mvp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.room.Room
@@ -30,6 +31,10 @@ class TestActivity : AppCompatActivity() {
                 val user = User(0, id, pw);
                 db.userDao().insertUser(user);
             };
+        };
+
+        binding.btnMove.setOnClickListener {
+            startActivity(Intent(this, UsersActivity::class.java));
         };
     }
 }
