@@ -1,5 +1,6 @@
 package com.example.mvp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mvp.databinding.ActivityMainBinding
@@ -21,6 +22,11 @@ class MainActivity : AppCompatActivity(), Contract.View { // Contract.View 인�
 
         presenter.initInfo();
         initButtonListener();
+
+        binding.btnMove.setOnClickListener {
+            startActivity(Intent(this, TestActivity::class.java));
+        };
+
     }
 
     override fun showInfo(info: JSONObject) { // 프리젠터에서 전달된 데이터를 화면에 표시하는 역할
